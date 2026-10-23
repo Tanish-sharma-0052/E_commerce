@@ -139,7 +139,7 @@ if module == "Route Efficiency Overview":
         top_10 = route_kpis.sort_values(by='Route_Efficiency_Score', ascending=False).head(10)
         fig_top = px.bar(top_10, x='Route_Efficiency_Score', y='Route_Name', orientation='h',
                          title="Top 10 Routes by Efficiency Score", labels={'Route_Efficiency_Score': 'Efficiency Score', 'Route_Name': 'Route'})
-        fig_top.update_layout(yaxes={'categoryorder':'total ascending'})
+        fig_top.update_layout(yaxes={})
         st.plotly_chart(fig_top, use_container_width=True)
         
     with col_b:
@@ -147,7 +147,7 @@ if module == "Route Efficiency Overview":
         bot_10 = route_kpis.sort_values(by='Route_Efficiency_Score', ascending=True).head(10)
         fig_bot = px.bar(bot_10, x='Route_Efficiency_Score', y='Route_Name', orientation='h',
                          title="Bottom 10 Routes (High Lead Time / Delays)", labels={'Route_Efficiency_Score': 'Efficiency Score', 'Route_Name': 'Route'})
-        fig_bot.update_layout(yaxes={'categoryorder':'total descending'})
+        fig_bot.update_layout(yaxes={})
         st.plotly_chart(fig_bot, use_container_width=True)
         
     st.subheader("Route Performance Leaderboard")
